@@ -68,7 +68,7 @@ class Generator
      *
      *
      */
-    public function setCurrent($register, $value): int
+    public function setCurrent(string $register, int $value): int
     {
         $db = Db::get();
         $sql = sprintf('REPLACE  INTO %s (register,counter) VALUES (?,?)', self::TABLE_NAME);

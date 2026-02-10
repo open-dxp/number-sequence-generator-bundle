@@ -50,19 +50,12 @@ class RandomGenerator
         $this->lockFactory = $lockFactory;
     }
 
-    /**
-     * @param string $codeType
-     * @param null $length
-     * @param string $characterSet character set for alphanumeric codes
-     *
-     * @return bool|int|string
-     */
     public function generateCode(
-        $range,
-        $codeType = self::NUMERIC,
-        $length = null,
-        $characterSet = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ'
-    ) {
+        string $range,
+        string $codeType = self::NUMERIC,
+        ?int $length = null,
+        string $characterSet = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ'
+    ): bool|int|string {
         switch ($codeType) {
             case self::NUMERIC:
                 return $this->generateNumericCode($range);
@@ -77,7 +70,7 @@ class RandomGenerator
      *
      * @return int
      */
-    private function generateNumericCode($range)
+    private function generateNumericCode(string $range): int
     {
         $lock = $this->lockFactory->createLock(self::LOCK_KEY);
         $lock->acquire(true);
@@ -114,7 +107,7 @@ class RandomGenerator
      *
      * @return string
      */
-    private function generateAlphanumericCode($range, $length, $characterSet)
+    private function generateAlphanumericCode(string $range, ?int $length, string $characterSet): string
     {
         if ($length && $length > 50) {
             throw new \Exception('maximum code length is 50');
@@ -145,7 +138,7 @@ class RandomGenerator
         return $code;
     }
 
-    public function resetCodeGenerator($range)
+    public function resetCodeGenerator(string $range): void
     {
         $db = Db::get();
         $db->executeQuery('DELETE FROM '.self::TABLE_NAME.' WHERE `range` = ?', [$range]);
