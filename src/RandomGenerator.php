@@ -1,20 +1,21 @@
 <?php
 
 /**
- * Pimcore
+ * OpenDXP
  *
- * This source file is available under two different licenses:
- * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Commercial License (PCL)
+ * This source file is licensed under the GNU General Public License version 3 (GPLv3).
+ *
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PCL
+ * @copyright  Copyright (c) Pimcore GmbH (https://pimcore.com)
+ * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.io)
+ * @license    https://www.gnu.org/licenses/gpl-3.0.html  GNU General Public License version 3 (GPLv3)
  */
 
 namespace OpenDxp\Bundle\NumberSequenceGeneratorBundle;
 
+use Exception;
 use OpenDxp\Db;
 use Symfony\Component\Lock\LockFactory;
 
@@ -62,14 +63,10 @@ class RandomGenerator
             case self::ALPHANUMERIC:
                 return $this->generateAlphanumericCode($range, $length, $characterSet);
             default:
-                throw new \Exception("Code Type $codeType not supported.");
+                throw new Exception("Code Type $codeType not supported.");
         }
     }
 
-    /**
-     *
-     * @return int
-     */
     private function generateNumericCode(string $range): int
     {
         $lock = $this->lockFactory->createLock(self::LOCK_KEY);
@@ -103,14 +100,10 @@ class RandomGenerator
         return $code;
     }
 
-    /**
-     *
-     * @return string
-     */
     private function generateAlphanumericCode(string $range, ?int $length, string $characterSet): string
     {
         if ($length && $length > 50) {
-            throw new \Exception('maximum code length is 50');
+            throw new Exception('maximum code length is 50');
         }
 
         $lock = $this->lockFactory->createLock(self::LOCK_KEY);
