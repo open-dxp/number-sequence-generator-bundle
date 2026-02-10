@@ -32,7 +32,7 @@ class Installer extends SettingsStoreAwareInstaller
         parent::uninstall();
     }
 
-    public function installDatabaseTable()
+    public function installDatabaseTable(): void
     {
         $sqlPath = __DIR__ . '/Resources/install/';
         $sqlFileNames = ['install.sql'];
