@@ -25,6 +25,11 @@
       "OpenDxp\\Bundle\\NumberSequenceGeneratorBundle\\": "src/"
     }
   },
+  "autoload-dev": {
+    "files": [
+      "kernel/Kernel.php"
+    ]
+  },
   "extra": {
     "opendxp": {
       "bundles": [
