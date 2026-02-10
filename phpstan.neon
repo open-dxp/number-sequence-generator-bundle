@@ -6,7 +6,7 @@ parameters:
         - phpstan-bootstrap.php
 
     symfony:
-        containerXmlPath: %currentWorkingDirectory%/var/cache/dev/App_KernelDevDebugContainer.xml
+        containerXmlPath: %currentWorkingDirectory%/var/cache/test/App_KernelTestDebugContainer.xml
 
 includes:
     - %currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/extension.neon
