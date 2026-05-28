@@ -22,11 +22,6 @@ use Symfony\Component\Lock\LockFactory;
 class RandomGenerator
 {
     /**
-     * @var LockFactory
-     */
-    private $lockFactory;
-
-    /**
      *  key for lock table
      */
     const LOCK_KEY = 'number_sequence_generator';
@@ -46,9 +41,8 @@ class RandomGenerator
      */
     const TABLE_NAME = 'bundle_number_sequence_generator_randomregister';
 
-    public function __construct(LockFactory $lockFactory)
+    public function __construct(private readonly LockFactory $lockFactory)
     {
-        $this->lockFactory = $lockFactory;
     }
 
     public function generateCode(
@@ -57,14 +51,11 @@ class RandomGenerator
         ?int $length = null,
         string $characterSet = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ'
     ): bool|int|string {
-        switch ($codeType) {
-            case self::NUMERIC:
-                return $this->generateNumericCode($range);
-            case self::ALPHANUMERIC:
-                return $this->generateAlphanumericCode($range, $length, $characterSet);
-            default:
-                throw new Exception("Code Type $codeType not supported.");
-        }
+        return match ($codeType) {
+            self::NUMERIC => $this->generateNumericCode($range),
+            self::ALPHANUMERIC => $this->generateAlphanumericCode($range, $length, $characterSet),
+            default => throw new Exception("Code Type $codeType not supported."),
+        };
     }
 
     private function generateNumericCode(string $range): int

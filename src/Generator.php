@@ -53,7 +53,7 @@ class Generator
             $db->commit();
 
             return $nextVal;
-        } catch (Exception $e) {
+        } catch (Exception) {
             $db->rollback();
             if ($_trial < 3) {
                 return self::getNext($register, $startValue, $_trial + 1); //try again

@@ -20,12 +20,14 @@ use OpenDxp\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
 
 class Installer extends SettingsStoreAwareInstaller
 {
+    #[\Override]
     public function install(): void
     {
         $this->installDatabaseTable();
         parent::install();
     }
 
+    #[\Override]
     public function uninstall(): void
     {
         //nothing to do due to potential data loss

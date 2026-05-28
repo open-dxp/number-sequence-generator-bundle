@@ -1,41 +1,42 @@
 {
-  "name": "open-dxp/number-sequence-generator-bundle",
-  "license": "GPL-3.0+",
-  "type": "opendxp-bundle",
-  "description": "OpenDXP Number Sequence Generator",
-  "config": {
-    "sort-packages": true,
-    "allow-plugins": {
-      "symfony/runtime": true
+    "name": "open-dxp/number-sequence-generator-bundle",
+    "license": "GPL-3.0+",
+    "type": "opendxp-bundle",
+    "description": "OpenDXP Number Sequence Generator",
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "symfony/runtime": true
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "require": {
+        "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
+        "open-dxp/opendxp": "^1.0"
+    },
+    "require-dev": {
+        "open-dxp/admin-bundle": "^1.0",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0.15",
+        "symfony/dotenv": "^7.4",
+        "symfony/runtime": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenDxp\\Bundle\\NumberSequenceGeneratorBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "kernel/Kernel.php"
+        ]
+    },
+    "extra": {
+        "opendxp": {
+            "bundles": [
+                "OpenDxp\\Bundle\\NumberSequenceGeneratorBundle\\OpenDxpNumberSequenceGeneratorBundle"
+            ]
+        }
     }
-  },
-  "prefer-stable": true,
-  "minimum-stability": "dev",
-  "require": {
-    "open-dxp/opendxp": "^1.0"
-  },
-  "require-dev": {
-    "open-dxp/admin-bundle": "^1.0",
-    "phpstan/phpstan": "^2.0",
-    "phpstan/phpstan-symfony": "^2.0",
-    "symfony/dotenv": "^7.4",
-    "symfony/runtime": "^7.4"
-  },
-  "autoload": {
-    "psr-4": {
-      "OpenDxp\\Bundle\\NumberSequenceGeneratorBundle\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "files": [
-      "kernel/Kernel.php"
-    ]
-  },
-  "extra": {
-    "opendxp": {
-      "bundles": [
-        "OpenDxp\\Bundle\\NumberSequenceGeneratorBundle\\OpenDxpNumberSequenceGeneratorBundle"
-      ]
-    }
-  }
 }

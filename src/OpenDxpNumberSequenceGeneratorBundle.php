@@ -24,6 +24,7 @@ class OpenDxpNumberSequenceGeneratorBundle extends AbstractOpenDxpBundle
 {
     use PackageVersionTrait;
 
+    #[\Override]
     public function getContainerExtension(): ExtensionInterface
     {
         if ($this->extension === null) {
