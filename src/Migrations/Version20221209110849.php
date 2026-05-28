@@ -37,6 +37,7 @@ class Version20221209110849 extends AbstractMigration
         }
     }
 
+    #[\Override]
     public function down(Schema $schema): void
     {
     }
