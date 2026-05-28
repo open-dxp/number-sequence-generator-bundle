@@ -19,6 +19,7 @@ use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 use OpenDxp\Bundle\NumberSequenceGeneratorBundle\RandomGenerator;
 use OpenDxp\Model\Tool\SettingsStore;
+use Override;
 
 /**
  * Checking if tables already exist
@@ -37,7 +38,7 @@ class Version20221209110849 extends AbstractMigration
         }
     }
 
-    #[\Override]
+    #[Override]
     public function down(Schema $schema): void
     {
     }

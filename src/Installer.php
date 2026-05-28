@@ -17,17 +17,18 @@ namespace OpenDxp\Bundle\NumberSequenceGeneratorBundle;
 
 use OpenDxp\Bundle\NumberSequenceGeneratorBundle\Migrations\Version20221209110849;
 use OpenDxp\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
+use Override;
 
 class Installer extends SettingsStoreAwareInstaller
 {
-    #[\Override]
+    #[Override]
     public function install(): void
     {
         $this->installDatabaseTable();
         parent::install();
     }
 
-    #[\Override]
+    #[Override]
     public function uninstall(): void
     {
         //nothing to do due to potential data loss

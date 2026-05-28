@@ -18,13 +18,14 @@ namespace OpenDxp\Bundle\NumberSequenceGeneratorBundle;
 use OpenDxp\Bundle\NumberSequenceGeneratorBundle\DependencyInjection\OpenDxpNumberSequenceGeneratorExtension;
 use OpenDxp\Extension\Bundle\AbstractOpenDxpBundle;
 use OpenDxp\Extension\Bundle\Traits\PackageVersionTrait;
+use Override;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
 class OpenDxpNumberSequenceGeneratorBundle extends AbstractOpenDxpBundle
 {
     use PackageVersionTrait;
 
-    #[\Override]
+    #[Override]
     public function getContainerExtension(): ExtensionInterface
     {
         if ($this->extension === null) {
