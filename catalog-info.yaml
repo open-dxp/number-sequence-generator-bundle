@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+    name: number-sequence-generator-bundle
+    description: Number Sequence Generator community bundle adds some tools for
+        generating number sequences to OpenDXP.
+spec:
+    type: library
+    lifecycle: production
+    owner: team-opendxp
+    system: opendxp
