@@ -6,6 +6,7 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
+            "pestphp/pest-plugin": true,
             "symfony/runtime": true
         }
     },
@@ -13,10 +14,11 @@
     "minimum-stability": "dev",
     "require": {
         "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
-        "open-dxp/opendxp": "^1.0"
+        "open-dxp/opendxp": "^1.5"
     },
     "require-dev": {
         "open-dxp/admin-bundle": "^1.0",
+        "open-dxp/test-foundation": "1.x-dev",
         "phpstan/phpstan": "^2.0",
         "phpstan/phpstan-symfony": "^2.0.15",
         "symfony/dotenv": "^7.4",
@@ -28,9 +30,9 @@
         }
     },
     "autoload-dev": {
-        "files": [
-            "kernel/Kernel.php"
-        ]
+        "psr-4": {
+            "OpenDxp\\Bundle\\NumberSequenceGeneratorBundle\\Tests\\": "tests/"
+        }
     },
     "extra": {
         "opendxp": {
