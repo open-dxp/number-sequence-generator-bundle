@@ -15,7 +15,6 @@
 
 namespace OpenDxp\Bundle\NumberSequenceGeneratorBundle;
 
-use OpenDxp\Bundle\NumberSequenceGeneratorBundle\Migrations\Version20221209110849;
 use OpenDxp\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
 use Override;
 
@@ -25,6 +24,8 @@ class Installer extends SettingsStoreAwareInstaller
     public function install(): void
     {
         $this->installDatabaseTable();
+        $this->markMigrationsAsExecuted();
+
         parent::install();
     }
 
@@ -45,10 +46,5 @@ class Installer extends SettingsStoreAwareInstaller
             $statement = file_get_contents($sqlPath.$fileName);
             $db->executeQuery($statement);
         }
-    }
-
-    public function getLastMigrationVersionClassName(): ?string
-    {
-        return Version20221209110849::class;
     }
 }
