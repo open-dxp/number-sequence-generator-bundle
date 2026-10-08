@@ -13,6 +13,12 @@
 
 ***
 
+## Installation
+- Execute: `$ bin/console opendxp:bundle:install OpenDxpNumberSequenceGeneratorBundle`
+
+## Upgrading
+- Execute: `$ bin/console doctrine:migrations:migrate --prefix 'OpenDxp\Bundle\NumberSequenceGeneratorBundle\Migrations'`
+
 ## Continues numbers
 
 Generates continous numbers for example for order numbers or customer numbers.

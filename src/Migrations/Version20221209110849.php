@@ -17,6 +17,7 @@ namespace OpenDxp\Bundle\NumberSequenceGeneratorBundle\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
+use OpenDxp\Bundle\NumberSequenceGeneratorBundle\OpenDxpNumberSequenceGeneratorBundle;
 use OpenDxp\Bundle\NumberSequenceGeneratorBundle\RandomGenerator;
 use OpenDxp\Model\Tool\SettingsStore;
 use Override;
@@ -34,7 +35,7 @@ class Version20221209110849 extends AbstractMigration
         $installed = !empty($result1) && !empty($result2);
 
         if ($installed) {
-            SettingsStore::set('BUNDLE_INSTALLED__OpenDxp\\NumberSequenceGeneratorBundle\\NumberSequenceGeneratorBundle', $installed, 'bool', 'opendxp');
+            SettingsStore::set('BUNDLE_INSTALLED__' . OpenDxpNumberSequenceGeneratorBundle::class, $installed, 'bool', 'opendxp');
         }
     }
 
