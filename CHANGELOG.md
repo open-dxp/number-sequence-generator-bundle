@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1
+- [CHORE] Check dependencies, code and commits for security issues
+
 ## 1.1.0
 - [BUGFIX] [MIGRATION] The installer marked an installation with the old name of the bundle from before OpenDXP. The bundle then counted as not installed. A migration marks it with the current name
 - [CHORE] Replace Codeception with Pest and `open-dxp/test-foundation`
